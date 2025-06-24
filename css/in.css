@@ -389,28 +389,21 @@ footer p {
 
 @media (max-width: 920px) {
 
+    h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5 {
+        margin-top: 0%;
+    }
+     
     .sobremi .contenedor .desc {
         font-size: 35px;
     }
 
-    .trabajos .container {
-        flex-direction: column;
-        align-items: left;
-        margin-left: 10px;
+    .trabajos .nombre {
+        margin-bottom: 4%;
     }
 
-    .trabajos .container .caja1 {
-        width: 70%;
+    .contacto .op1 {
+        margin-top: 0%;
     }
-
-    .trabajos .container .caja1 p {
-        font-size: 19px;
-    }
-
-    .trabajos .container #espacio2 {
-        margin-left: 0%;
-    }
-
     .contacto .contbtn {
         margin-left: 5%;
     }
@@ -464,7 +457,6 @@ footer p {
     .contacto h2 {
         margin-left: 0%;
     }
-
 
     .contacto .op1 {
         flex-direction: column;

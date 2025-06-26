@@ -5,12 +5,33 @@
     box-sizing: border-box;
 }
 
+button:focus, 
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a.btn:focus, 
+a.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
 .selector-for-some-widget {
   box-sizing: content-box;
 }
 
+section {
+  scroll-margin-top: 90px; 
+}
+
+#sobremi, #trabajos, #contacto {
+  scroll-margin-top: 90px;
+}
+
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
 body {
@@ -120,7 +141,20 @@ header {
 }
 
 .sobremi .contenedor #espacio {
-    margin-top: 20%;
+    margin-top: 18%;
+}
+
+.sobremi .revelartext .char {
+    display: inline-block;
+}
+
+.sobremi .revelartext .word {
+    white-space: normal;
+}
+
+.sobremi .revelartext {
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .sobremi .contenedor .desc {
@@ -134,7 +168,33 @@ header {
     color: #ec7c26;
 }
 
-h2.izdadcha1, h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5 {
+.sobremi button {
+    margin-top: 15px;
+}
+
+.sobremi .id2{
+    margin-left: 5px !important;
+}
+
+.sobremi .btn-outline-primary {
+  color: #a89c89;
+  border-color: #ec7c26;
+}
+
+.sobremi .btn-outline-primary:hover {
+  background-color: #ec7c26;
+  color: #000000;
+  border-color: #ec7c26;
+}
+
+.sobremi .modal .modal-content {
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.2), rgba(47, 47, 47, 0.4), rgba(48, 48, 48, 0.2)); 
+    color: white; 
+    border-color: #ec7c26;
+    box-shadow: 0 0 5px #ec7c26, 0 0 25px #ec7c26;
+}
+
+h2.izdadcha1, h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5, h2.izdadcha6, h2.izdadcha7 {
     position: relative;
     overflow: hidden;
     display: inline-block;
@@ -145,7 +205,7 @@ h2.izdadcha1, h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5 {
     line-height: 46px;
 }
 
-h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5 {
+h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5, h2.izdadcha6, h2.izdadcha7 {
     margin-top: 2.5%;
 }
 
@@ -154,7 +214,7 @@ h2.izdadcha1:after {
     position: absolute;
     bottom: 0;
     left: -100%;
-    width: 57%;
+    width: 48%;
     height: 3px;
     background: #ec7c26;
     transition: left .8s;
@@ -165,7 +225,7 @@ h2.izdadcha2:after {
     position: absolute;
     bottom: 0;
     left: -100%;
-    width: 69%;
+    width: 62%;
     height: 3px;
     background: #ec7c26;
     transition: left .8s;
@@ -176,7 +236,7 @@ h2.izdadcha3:after {
     position: absolute;
     bottom: 0;
     left: -100%;
-    width: 80%;
+    width: 74%;
     height: 3px;
     background: #ec7c26;
     transition: left .8s;
@@ -187,7 +247,7 @@ h2.izdadcha4:after {
     position: absolute;
     bottom: 0;
     left: -100%;
-    width: 72%;
+    width: 65%;
     height: 3px;
     background: #ec7c26;
     transition: left .8s;
@@ -198,13 +258,37 @@ h2.izdadcha5:after {
     position: absolute;
     bottom: 0;
     left: -100%;
-    width: 77%;
+    width: 71%;
     height: 3px;
     background: #ec7c26;
     transition: left .8s;
 }
 
-h2.izdadcha1:hover:after, h2.izdadcha2:hover:after, h2.izdadcha3:hover:after, h2.izdadcha4:hover:after, h2.izdadcha5:hover:after {
+h2.izdadcha6:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 78.5%;
+    height: 3px;
+    background: #ec7c26;
+    transition: left .8s;
+}
+
+
+h2.izdadcha7:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 74%;
+    height: 3px;
+    background: #ec7c26;
+    transition: left .8s;
+}
+
+
+h2.izdadcha1:hover:after, h2.izdadcha2:hover:after, h2.izdadcha3:hover:after, h2.izdadcha4:hover:after, h2.izdadcha5:hover:after, h2.izdadcha6:hover:after, h2.izdadcha7:hover:after{
     left: 0;
 }
 

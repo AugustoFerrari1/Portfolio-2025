@@ -1,0 +1,16 @@
+# dependencias
+node_modules/
+
+# logs
+npm-debug.log*
+
+# entorno local
+.env
+
+# compilados
+dist/
+build/
+
+# sistema operativo
+.DS_Store
+Thumbs.db

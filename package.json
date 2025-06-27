@@ -1,0 +1,33 @@
+{
+  "name": "portfolio-2024",
+  "version": "1.0.0",
+  "description": "Mi portfolio 2024 - Augusto Ferrari",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AugustoFerrari1/Portfolio-2024.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AugustoFerrari1/Portfolio-2024/issues"
+  },
+  "homepage": "https://github.com/AugustoFerrari1/Portfolio-2024#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "globals": "^16.2.0",
+    "prettier": "^3.6.1"
+  }
+}

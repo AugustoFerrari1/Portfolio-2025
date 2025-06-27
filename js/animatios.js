@@ -5,15 +5,15 @@ let animations = [];
 
 function setup() {
   console.log('Ejecutando setup para elementos .nombre...');
-  
+
   // Revertir splits y animaciones anteriores
-  splits.forEach(split => {
+  splits.forEach((split) => {
     if (split && split.revert) {
       split.revert();
     }
   });
-  
-  animations.forEach(anim => {
+
+  animations.forEach((anim) => {
     if (anim && anim.kill) {
       anim.kill();
     }
@@ -22,21 +22,21 @@ function setup() {
   splits = [];
   animations = [];
 
-  const elements = document.querySelectorAll(".nombre");
+  const elements = document.querySelectorAll('.nombre');
   console.log('Elementos .nombre encontrados:', elements.length);
 
   elements.forEach((elem, index) => {
     console.log(`Procesando elemento .nombre ${index + 1}:`, elem.textContent);
-    
+
     // Limpiar cualquier SplitType previo en este elemento
     if (elem._splitType) {
       elem._splitType.revert();
       elem._splitType = null;
     }
-    
-    const split = new SplitType(elem, { types: "words, chars" });
+
+    const split = new SplitType(elem, { types: 'words, chars' });
     splits.push(split);
-    
+
     // Guardar referencia en elem elemento para poder limpiarla después
     elem._splitType = split;
 
@@ -44,28 +44,33 @@ function setup() {
       y: 60,
       opacity: 0,
       stagger: 0.04,
-      ease: "power4.out",
+      ease: 'power4.out',
       duration: 0.7,
       scrollTrigger: {
         trigger: elem,
-        start: "top 90%",
-        toggleActions: "play none none reverse",
-        markers: false 
-      }
+        start: 'top 90%',
+        toggleActions: 'play none none reverse',
+        markers: false,
+      },
     });
 
     animations.push(animation);
   });
-  
-  console.log('Setup completado. Splits creados:', splits.length, 'Animaciones creadas:', animations.length);
+
+  console.log(
+    'Setup completado. Splits creados:',
+    splits.length,
+    'Animaciones creadas:',
+    animations.length
+  );
 }
 
 function reiniciarAnimaciones() {
   console.log('Reiniciando animaciones .nombre...');
-  
+
   // Revertir splits y animaciones anteriores
   if (window.splits) {
-    window.splits.forEach(split => {
+    window.splits.forEach((split) => {
       if (split && split.revert) {
         split.revert();
       }
@@ -74,7 +79,7 @@ function reiniciarAnimaciones() {
   }
 
   if (window.animations) {
-    window.animations.forEach(anim => {
+    window.animations.forEach((anim) => {
       if (anim && anim.kill) {
         anim.kill();
       }
@@ -83,8 +88,12 @@ function reiniciarAnimaciones() {
   }
 
   // Limpiar todos los ScrollTriggers relacionados con .nombre
-  ScrollTrigger.getAll().forEach(trigger => {
-    if (trigger.trigger && trigger.trigger.classList && trigger.trigger.classList.contains('nombre')) {
+  ScrollTrigger.getAll().forEach((trigger) => {
+    if (
+      trigger.trigger &&
+      trigger.trigger.classList &&
+      trigger.trigger.classList.contains('nombre')
+    ) {
       trigger.kill();
     }
   });
@@ -102,14 +111,14 @@ window.splits = splits;
 window.animations = animations;
 
 // Setup inicial
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   setTimeout(() => {
     setup();
   }, 200);
 });
 
 // Reaplicar SplitType en resize
-window.addEventListener("resize", () => {
+window.addEventListener('resize', () => {
   setTimeout(() => {
     setup();
   }, 100);
@@ -117,77 +126,79 @@ window.addEventListener("resize", () => {
 
 // Solo ejecutar estas animaciones al cargar la página inicialmente
 function inicializarRevealtextAnimaciones() {
-    console.log('Inicializando animaciones revealtext...');
-    const splitTypes = document.querySelectorAll('.revelartext');
+  console.log('Inicializando animaciones revealtext...');
+  const splitTypes = document.querySelectorAll('.revelartext');
 
-    splitTypes.forEach((char, i) => {
-        const bg = char.dataset.bgColor || "#353535";
-        const fg = "#a89c89";         // color para texto general
-        const spanColor = "#ec7c26";  // color para los <span>
+  splitTypes.forEach((char, i) => {
+    const bg = char.dataset.bgColor || '#353535';
+    const fg = '#a89c89'; // color para texto general
+    const spanColor = '#ec7c26'; // color para los <span>
 
-        const text = new SplitType(char, { types: 'words, chars' });
-        
-        // Guardar referencia para poder revertir después
-        char._splitType = text;
+    const text = new SplitType(char, { types: 'words, chars' });
 
-        // Separa los caracteres según si están dentro de un <span> o no
-        const spanChars = text.chars.filter(c => c.closest('span'));
-        const normalChars = text.chars.filter(c => !c.closest('span'));
+    // Guardar referencia para poder revertir después
+    char._splitType = text;
 
-        // Aplica color inicial a todos (elem del fondo)
-        gsap.set(text.chars, { color: bg });
+    // Separa los caracteres según si están dentro de un <span> o no
+    const spanChars = text.chars.filter((c) => c.closest('span'));
+    const normalChars = text.chars.filter((c) => !c.closest('span'));
 
-        // Animación para texto general
-        gsap.fromTo(normalChars, 
-            { color: bg },
-            {
-                color: fg,
-                duration: 0.3,
-                stagger: 0.02,
-                scrollTrigger: {
-                    trigger: char,
-                    start: 'top 85%',
-                    end: 'top 40%',
-                    scrub: true,
-                    toggleActions: 'play play reverse reverse',
-                    markers: false
-                }
-            }
-        );
+    // Aplica color inicial a todos (elem del fondo)
+    gsap.set(text.chars, { color: bg });
 
-        // Animación para los <span>
-        gsap.fromTo(spanChars, 
-            { color: bg },
-            {
-                color: spanColor,
-                duration: 0.3,
-                stagger: 0.02,
-                scrollTrigger: {
-                    trigger: char,
-                    start: 'top 85%',
-                    end: 'top 40%',
-                    scrub: true,
-                    toggleActions: 'play play reverse reverse',
-                    markers: false
-                }
-            }
-        );
-    });
+    // Animación para texto general
+    gsap.fromTo(
+      normalChars,
+      { color: bg },
+      {
+        color: fg,
+        duration: 0.3,
+        stagger: 0.02,
+        scrollTrigger: {
+          trigger: char,
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: true,
+          toggleActions: 'play play reverse reverse',
+          markers: false,
+        },
+      }
+    );
+
+    // Animación para los <span>
+    gsap.fromTo(
+      spanChars,
+      { color: bg },
+      {
+        color: spanColor,
+        duration: 0.3,
+        stagger: 0.02,
+        scrollTrigger: {
+          trigger: char,
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: true,
+          toggleActions: 'play play reverse reverse',
+          markers: false,
+        },
+      }
+    );
+  });
 }
 
 // Inicializar las animaciones revealtext solo al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-        inicializarRevealtextAnimaciones();
-    }, 400); // Dar tiempo para que se carguen las traducciones y se ejecute setup
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(() => {
+    inicializarRevealtextAnimaciones();
+  }, 400); // Dar tiempo para que se carguen las traducciones y se ejecute setup
 });
 
 const lenis = new Lenis({
-  duration: 1.2,   
+  duration: 1.2,
   smooth: true,
   direction: 'vertical',
   gestureDirection: 'vertical',
-  smoothTouch: false, 
+  smoothTouch: false,
   touchMultiplier: 1.5,
   wheelMultiplier: 1.0,
 });
@@ -199,37 +210,37 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   const scrollLinks = {
-    sobremibtn: "#sobremi",
-    atributosbtn: "#atributos",
-    trabajosbtn: "#trabajos",
-    contactobtn: "#contacto"
+    sobremibtn: '#sobremi',
+    atributosbtn: '#atributos',
+    trabajosbtn: '#trabajos',
+    contactobtn: '#contacto',
   };
 
-  Object.keys(scrollLinks).forEach(id => {
+  Object.keys(scrollLinks).forEach((id) => {
     const btn = document.getElementById(id);
     if (btn) {
-      btn.addEventListener("click", function () {
+      btn.addEventListener('click', function () {
         const target = document.querySelector(scrollLinks[id]);
         if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     }
   });
 });
 
-window.reiniciarTodasLasAnimaciones = function() {
-    console.log('Reiniciando TODAS las animaciones...');
-    
-    // Limpiar todos los ScrollTriggers
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    
-    // Reiniciar animaciones de los nombres (.nombre)
-    setTimeout(() => {
-        if (window.setup) {
-            window.setup();
-        }
-    }, 50);
+window.reiniciarTodasLasAnimaciones = function () {
+  console.log('Reiniciando TODAS las animaciones...');
+
+  // Limpiar todos los ScrollTriggers
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+  // Reiniciar animaciones de los nombres (.nombre)
+  setTimeout(() => {
+    if (window.setup) {
+      window.setup();
+    }
+  }, 50);
 };

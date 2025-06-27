@@ -5,6 +5,22 @@
     box-sizing: border-box;
 }
 
+html.lenis, html.lenis body {
+    height: auto;
+}
+  
+.lenis.lenis-smooth {
+scroll-behavior: auto !important;
+}
+  
+.lenis.lenis-smooth [data-lenis-prevent] {
+overscroll-behavior: contain;
+}
+
+.no-smooth {
+overscroll-behavior: contain;
+}
+
 button:focus, 
 button:active {
   outline: none !important;
@@ -507,6 +523,12 @@ footer p {
     color: #a89c89;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+    }
+}
+
 /* -------> Monitores <----------*/
 /* Muy grandes - 1920px+ */
 @media (min-width: 1920px) {
@@ -712,6 +734,10 @@ footer p {
         padding-right: 8%;
     }
     
+    .atributos p {
+        font-size: 12px;
+    }
+
     .progress {
         margin-right: 10%;
     }
@@ -826,6 +852,10 @@ footer p {
         padding-right: 5%;
     }
     
+    .atributos p {
+        font-size: 12px;
+    }
+
     .progress {
         margin-right: 5%;
     }

@@ -216,102 +216,46 @@ header {
     box-shadow: 0 0 5px #ec7c26, 0 0 25px #ec7c26;
 }
 
-h2.izdadcha1, h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5, h2.izdadcha6, h2.izdadcha7 {
+.experiencia-item {
     position: relative;
     overflow: hidden;
-    display: inline-block;
-    text-decoration: none;
+    display: block;
     color: #a89c89;
     font-size: 35px;
     padding-right: 20%;
     line-height: 46px;
-}
-
-h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5, h2.izdadcha6, h2.izdadcha7 {
     margin-top: 2.5%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    --text-width: 100%;
 }
 
-h2.izdadcha1:after {
+.experiencia-item:first-of-type {
+    margin-top: 0;
+}
+
+.experiencia-item:before {
     content: "";
     position: absolute;
     bottom: 0;
-    left: -100%;
-    width: 48%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-h2.izdadcha2:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 62%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-h2.izdadcha3:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 74%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-h2.izdadcha4:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 65%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-h2.izdadcha5:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 71%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-h2.izdadcha6:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 78.5%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-
-h2.izdadcha7:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 74%;
-    height: 3px;
-    background: #ec7c26;
-    transition: left .8s;
-}
-
-
-h2.izdadcha1:hover:after, h2.izdadcha2:hover:after, h2.izdadcha3:hover:after, h2.izdadcha4:hover:after, h2.izdadcha5:hover:after, h2.izdadcha6:hover:after, h2.izdadcha7:hover:after{
     left: 0;
+    width: 0;
+    height: 3px;
+    background: #ec7c26;
+    transition: width 0.8s ease;
+    z-index: 1;
+}
+
+.experiencia-item:hover:before {
+    width: var(--text-width);
+}
+
+.experiencia-item span {
+    color: #ec7c26;
+}
+
+.experiencia-item:hover {
+    transform: translateX(5px);
 }
 
 /* TRABAJOS */
@@ -576,7 +520,7 @@ footer p {
 }
 
 /* Chicas y medianas - 1024px to 1199px */
-@media (max-width: 1199px) and (min-width: 1024px) {
+@media (max-width: 1199px) and (min-width: 1080px) {
     .sobremi .contenedor {
         margin-left: 15%;
     }
@@ -625,7 +569,7 @@ footer p {
 }
 
 /* Normal - 920px to 1023px */
-@media (max-width: 1023px) and (min-width: 920px) {
+@media (max-width: 1080px) and (min-width: 920px) {
     h2.izdadcha2, h2.izdadcha3, h2.izdadcha4, h2.izdadcha5 {
         margin-top: 1%;
     }
@@ -673,6 +617,11 @@ footer p {
     .contacto .nombre, .contacto h2 {
         margin-left: 10%;
     }
+
+    .contacto .nombre, .contacto h2 {
+        font-size: 33px;
+    }
+
 }
 
 @media (max-width: 1023px) {

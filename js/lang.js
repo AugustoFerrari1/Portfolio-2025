@@ -13,7 +13,7 @@ window.traducciones = {
     // Sección Sobre Mi
     sobre_mi: 'SOBRE MI',
     sobre_mi_texto:
-      'Estudiante de <span>Ingeniería en Sistemas</span> en la <span>ORT Uruguay</span>, con formación en <span>desarrollo web</span> y <span>bases de datos</span>.<br> He creado más de <span>5 proyectos personales</span> en varias plataformas, aplicando <span>buenas prácticas de código</span> y <span>lógica backend</span>.',
+      'Estudiante de <span>Ingeniería en Sistemas</span> en la <span>ORT Uruguay</span>, con formación en <span>desarrollo web</span> y <span>bases de datos</span>.<br> He creado más de <span>5 proyectos personales</span> en varias plataformas, aplicando <span>buenas prácticas de código</span> y <span>lógica backend.</span>',
     btncv: 'VER CV',
     btncer: 'CERTIFICADO',
 
@@ -90,7 +90,7 @@ window.traducciones = {
     // Sección Sobre Mi
     sobre_mi: 'ABOUT ME',
     sobre_mi_texto:
-      'Student of <span>Systems Engineering</span> at <span>ORT Uruguay</span>, with studies in <span>web development</span> and <span>databases</span>.<br> I have created over <span>5 personal projects</span> on various platforms, applying <span>good coding practices</span> and <span>backend logic</span>.',
+      'Student of <span>Systems Engineering</span> at <span>ORT Uruguay</span>, with studies in <span>web development</span> and <span>databases</span>.<br> I have created over <span>5 personal projects</span> on various platforms, applying <span>good coding practices</span> and <span>backend logic.</span>',
     btncv: 'VIEW CV',
     btncer: 'CERTIFICATE',
 

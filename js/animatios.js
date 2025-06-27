@@ -4,8 +4,6 @@ let splits = [];
 let animations = [];
 
 function setup() {
-  console.log('Ejecutando setup para elementos .nombre...');
-
   // Revertir splits y animaciones anteriores
   splits.forEach((split) => {
     if (split && split.revert) {
@@ -23,12 +21,9 @@ function setup() {
   animations = [];
 
   const elements = document.querySelectorAll('.nombre');
-  console.log('Elementos .nombre encontrados:', elements.length);
 
   elements.forEach((elem, index) => {
-    console.log(`Procesando elemento .nombre ${index + 1}:`, elem.textContent);
-
-    // Limpiar cualquier SplitType previo en este elemento
+    // Limpiar cualquier SplitType previo
     if (elem._splitType) {
       elem._splitType.revert();
       elem._splitType = null;
@@ -56,18 +51,9 @@ function setup() {
 
     animations.push(animation);
   });
-
-  console.log(
-    'Setup completado. Splits creados:',
-    splits.length,
-    'Animaciones creadas:',
-    animations.length
-  );
 }
 
 function reiniciarAnimaciones() {
-  console.log('Reiniciando animaciones .nombre...');
-
   // Revertir splits y animaciones anteriores
   if (window.splits) {
     window.splits.forEach((split) => {
@@ -87,7 +73,7 @@ function reiniciarAnimaciones() {
     window.animations = [];
   }
 
-  // Limpiar todos los ScrollTriggers relacionados con .nombre
+  // Limpiar todos los ScrollTriggers de .nombre
   ScrollTrigger.getAll().forEach((trigger) => {
     if (
       trigger.trigger &&
@@ -124,26 +110,25 @@ window.addEventListener('resize', () => {
   }, 100);
 });
 
-// Solo ejecutar estas animaciones al cargar la página inicialmente
+// Solo se ejecuta al cargar pagina
 function inicializarRevealtextAnimaciones() {
-  console.log('Inicializando animaciones revealtext...');
   const splitTypes = document.querySelectorAll('.revelartext');
 
   splitTypes.forEach((char, i) => {
     const bg = char.dataset.bgColor || '#353535';
-    const fg = '#a89c89'; // color para texto general
-    const spanColor = '#ec7c26'; // color para los <span>
+    const fg = '#a89c89';
+    const spanColor = '#ec7c26';
 
     const text = new SplitType(char, { types: 'words, chars' });
 
     // Guardar referencia para poder revertir después
     char._splitType = text;
 
-    // Separa los caracteres según si están dentro de un <span> o no
+    // Separa los caracteres
     const spanChars = text.chars.filter((c) => c.closest('span'));
     const normalChars = text.chars.filter((c) => !c.closest('span'));
 
-    // Aplica color inicial a todos (elem del fondo)
+    // Aplica color
     gsap.set(text.chars, { color: bg });
 
     // Animación para texto general
@@ -186,7 +171,7 @@ function inicializarRevealtextAnimaciones() {
   });
 }
 
-// Inicializar las animaciones revealtext solo al cargar la página
+// Inicia al cargar página
 document.addEventListener('DOMContentLoaded', function () {
   setTimeout(() => {
     inicializarRevealtextAnimaciones();

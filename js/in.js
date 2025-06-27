@@ -42,55 +42,97 @@ function cambiarLenguaje() {
     botonIdioma.textContent = idiomaActual === 'es' ? 'EN' : 'ES';
   }
 
-  // Limpiar TODAS las animaciones ScrollTrigger primero
+  // Evita parpadeo
+  const elementosAnimados = document.querySelectorAll('.revelartext, .nombre');
+  elementosAnimados.forEach((elem) => {
+    elem.style.opacity = '0';
+  });
+
+  // Limpiar TODAS las animaciones ScrollTrigger
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-  traducirPagina();
+  requestAnimationFrame(() => {
+    traducirPaginaOptimizada();
 
-  setTimeout(() => {
-    reiniciarTodasLasAnimaciones();
-  }, 250);
+    setTimeout(() => {
+      reiniciarTodasLasAnimaciones();
+
+      setTimeout(() => {
+        elementosAnimados.forEach((elem) => {
+          elem.style.opacity = '';
+        });
+      }, 100);
+    }, 50);
+  });
+}
+
+// Función para traducir demora
+function traducirPaginaOptimizada() {
+  if (typeof traducciones === 'undefined') {
+    console.error(
+      'El objeto traducciones no está definido. Verifica que lang.js se haya cargado correctamente.'
+    );
+    return;
+  }
+
+  if (!traducciones[idiomaActual]) {
+    console.error(`No se encontraron traducciones para el idioma: ${idiomaActual}`);
+    return;
+  }
+
+  // Limpiar SplitTypes antes de cambiar el contenido
+  document.querySelectorAll('[data-i18n]').forEach((elem) => {
+    if (elem._splitType) {
+      elem._splitType.revert();
+      elem._splitType = null;
+    }
+  });
+
+  // Ahora aplicar las traducciones
+  document.querySelectorAll('[data-i18n]').forEach((elem) => {
+    const clave = elem.getAttribute('data-i18n');
+
+    if (clave === 'cambiar_idioma') {
+      return;
+    }
+
+    if (traducciones[idiomaActual][clave]) {
+      elem.innerHTML = traducciones[idiomaActual][clave];
+    } else {
+      console.warn(`No se encontró traducción para: ${clave} en idioma ${idiomaActual}`);
+    }
+  });
 }
 
 // Función principal para reiniciar todas las animaciones
 function reiniciarTodasLasAnimaciones() {
-  console.log('Reiniciando todas las animaciones...');
-
+  // Reiniciar animaciones de .nombre
   if (window.setup) {
     window.setup();
   }
 
+  // Reiniciar animaciones de .revelartext
   setTimeout(() => {
     reiniciarRevealtextAnimaciones();
-  }, 100);
+  }, 50);
 }
 
 // Función para reiniciar las animaciones de revealtext
 function reiniciarRevealtextAnimaciones() {
-  // Volver a ejecutar las animaciones de revealtext
   const splitTypes = document.querySelectorAll('.revelartext');
 
   splitTypes.forEach((char, i) => {
-    const clave = char.getAttribute('data-i18n');
-    if (clave && traducciones[idiomaActual] && traducciones[idiomaActual][clave]) {
-      char.innerHTML = traducciones[idiomaActual][clave];
-    }
-
     const bg = char.dataset.bgColor || '#353535';
     const fg = '#a89c89';
     const spanColor = '#ec7c26';
 
-    // Revertir cualquier SplitType previo en este elemento
-    if (char._splitType) {
-      char._splitType.revert();
-    }
-
+    // El contenido ya fue actualizado en traducirPaginaOptimizada
     const text = new SplitType(char, { types: 'words, chars' });
 
     // Guardar referencia para poder revertir después
     char._splitType = text;
 
-    // Separa los caracteres según si están dentro de un <span> o no
+    // Separa los caracteres
     const spanChars = text.chars.filter((c) => c.closest('span'));
     const normalChars = text.chars.filter((c) => !c.closest('span'));
 
@@ -134,6 +176,7 @@ function reiniciarRevealtextAnimaciones() {
   });
 }
 
+// Función original para la carga inicial
 function traducirPagina() {
   if (typeof traducciones === 'undefined') {
     console.error(
@@ -147,8 +190,6 @@ function traducirPagina() {
     return;
   }
 
-  console.log(`Traduciendo a idioma: ${idiomaActual}`);
-
   document.querySelectorAll('[data-i18n]').forEach((elem) => {
     const clave = elem.getAttribute('data-i18n');
 
@@ -157,17 +198,6 @@ function traducirPagina() {
     }
 
     if (traducciones[idiomaActual][clave]) {
-      console.log(`Traduciendo ${clave}: ${traducciones[idiomaActual][clave]}`);
-
-      if (elem._splitType) {
-        elem._splitType.revert();
-      }
-
-      if (elem.classList.contains('nombre') && elem._splitType) {
-        elem._splitType.revert();
-        elem._splitType = null;
-      }
-
       elem.innerHTML = traducciones[idiomaActual][clave];
     } else {
       console.warn(`No se encontró traducción para: ${clave} en idioma ${idiomaActual}`);

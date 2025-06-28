@@ -23,23 +23,33 @@
                 <img src="img/logofir.png" alt="">
                 <div class="redes">
                     <div class="social-media">
-                        <i onclick="direciones(this)" data-url="https://mail.google.com/mail/u/0/?fs=1&to=augustoferrari100@gmail.com&su=CONTACTO&body=Buenas,%20augusto...&bcc=augustoferrari100@gmail.com&tf=cm" class='bx bxl-google'></i>
-                        <i onclick="direciones(this)" data-url="https://api.whatsapp.com/send?phone=59892150899" class='bx bxl-whatsapp'></i>
-                        <i onclick="direciones(this)" data-url="https://www.instagram.com/aguferrari1?igsh=ZDU5aXNjZXM0azdw&utm_source=qr" class='bx bxl-instagram'></i>
-                        <i onclick="direciones(this)" data-url="https://www.linkedin.com/in/augusto-ferrari-825995321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class='bx bxl-linkedin'></i>
-                    </div>
+                        <a href="#" onclick="direciones(this)" data-url="https://mail.google.com/mail/u/0/?fs=1&to=augustoferrari100@gmail.com&su=CONTACTO&body=Buenas,%20augusto...&bcc=augustoferrari100@gmail.com&tf=cm" aria-label="Enviar correo a Augusto Ferrari">
+                          <i class='bx bxl-google'></i>
+                        </a>
+                        <a href="#" onclick="direciones(this)" data-url="https://api.whatsapp.com/send?phone=59892150899" aria-label="Contactar por WhatsApp">
+                          <i class='bx bxl-whatsapp'></i>
+                        </a>
+                        <a href="#" onclick="direciones(this)" data-url="https://www.instagram.com/aguferrari1?igsh=ZDU5aXNjZXM0azdw&utm_source=qr" aria-label="Ver perfil de Instagram">
+                          <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="#" onclick="direciones(this)" data-url="https://www.linkedin.com/in/augusto-ferrari-825995321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="Ver perfil de LinkedIn">
+                          <i class='bx bxl-linkedin'></i>
+                        </a>
+                      </div>                      
                 </div>
                 <ul class="bar">
                     <li id="sobremibtn" data-i18n="nav.sobre">SOBRE MI</li>
                     <li id="atributosbtn" data-i18n="nav.atr">ATRIBUTOS</li>
                     <li id="trabajosbtn" data-i18n="nav.works">TRABAJOS</li>
                     <li id="contactobtn" data-i18n="nav.contact">CONTACTO</li>
-                    <li id="lenguajebtn" onclick="cambiarLenguaje()" data-i18n="cambiar_idioma">EN</li> 
+                    <li><a href="#" id="lenguajebtn" onclick="cambiarLenguaje(); return false;" data-i18n="cambiar_idioma" aria-label="Cambiar idioma">
+                        EN
+                    </a></li>
                 </ul>
             </div>
         </header>
         <section class="inicio">
-            <h3>AUGUSTO FERRARI</h3>
+            <h1>AUGUSTO FERRARI</h1>
             <h2 data-i18n="inicio_h2">Eficiencia y creatividad <br> <span>en cada línea </span><br> de código</h2>
         </section>
         <section class="sobremi" id="sobremi">
@@ -54,7 +64,7 @@
                     <div class="modal-dialog modal-superxl" role="document">
                         <div class="modal-content">
                             <div class="modal-header border-0">
-                                <h5 class="modal-title" id="pdfModalLabel" data-i18n="pre.cv">Previsualización de CV</h5>
+                                <h3 class="modal-title" id="pdfModalLabel" data-i18n="pre.cv">Previsualización de CV</h3>
                                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -64,7 +74,9 @@
                             </div>
 
                             <div class="modal-footer border-0">
-                                <a href="docs/Informe_1.pdf" download class="btn btn-outline-primary" data-i18n="descarga">Descargar PDF</a>
+                                <a href="docs/Informe_1.pdf" download class="btn btn-outline-primary" data-i18n="descarga" aria-label="Descargar archivo PDF: CV">
+                                    Descargar PDF
+                                </a>                                  
                             </div>
                         </div>
                     </div>
@@ -74,7 +86,7 @@
                     <div class="modal-dialog modal-superxl" role="document">
                         <div class="modal-content">
                             <div class="modal-header border-0">
-                                <h5 class="modal-title" id="certificadoLabel" data-i18n="certificado">CERTIFICADO</h5>
+                                <h3 class="modal-title" id="certificadoLabel" data-i18n="certificado">CERTIFICADO</h3>
                                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -84,7 +96,7 @@
                             </div>
 
                             <div class="modal-footer border-0">
-                                <a href="docs/AUGUSTO FERRARI - PROGRAMADOR WEB PHP Y MYSQL.pdf" download class="btn btn-outline-primary" data-i18n="descarga">Descargar PDF</a>
+                                <a href="docs/AUGUSTO FERRARI - PROGRAMADOR WEB PHP Y MYSQL.pdf" download class="btn btn-outline-primary" data-i18n="descarga" aria-label="Descargar archivo PDF certificado de programador web PHP y MySQL">Descargar PDF</a>
                             </div>
                         </div>
                     </div>
@@ -138,7 +150,7 @@
                     Segundo Trabajo
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">PIXELSHIFT WEB</h5>
+                    <h2 class="card-title">PIXELSHIFT WEB</h2>
                     <p class="card-text"  data-i18n="card1.1">Desarrollamos una <span>página web</span> especializada en la <span>venta de servicios digitales</span>, diseñada para ofrecer soluciones digitales a empresas, emprendedores o particulares. <br></p>
                     <p class="card-text minimizado" data-i18n="card1.2">Páginas Web:</span> Creación y desarrollo de sitios web <span>intuitivos</span> y <span>optimizados</span> para satisfacer las necesidades específicas de cada cliente. <br></p>
                     <p class="card-text minimizado" data-i18n="card1.3"><span>Tiendas Online:</span> Implementación de comercios electrónicos <span>completos</span>, con todas las <span>funcionalidades necesarias</span> para vender productos y servicios en línea de manera <span>eficiente y segura</span>. <br></p>
@@ -155,7 +167,7 @@
                     Primer Trabajo
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title" data-i18n="automotora">AUTOMOTORA</h5>
+                    <h2 class="card-title" data-i18n="automotora">AUTOMOTORA</h2>
                     <p class="card-text" data-i18n="card2.1">Desarrollamos una <span>página web</span> integral para una automotora, diseñada para ofrecer una <span>experiencia de usuario completa</span> y <span>personalizada</span>. La plataforma incluye un <span>sistema completo de cuentas y perfiles</span>, permitiendo a los usuarios puedan <span>editar</span> todos los campos de su información personal de manera <span>sencilla y segura.</span></p>
                     
                     <p class="card-text" data-i18n="card2.2">Además, hemos implementado un <span>carrito</span> de compras versátil que permite a los clientes realizar <span>reservas</span>, <span>alquilar</span> y <span>comprar</span> vehículos en línea, con un proceso de pago intuitivo y seguro.</p>

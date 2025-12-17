@@ -1,33 +1,47 @@
 {
-  "name": "portfolio-2024",
+  "name": "portfolio-2025",
   "version": "1.0.0",
-  "description": "Mi portfolio 2024 - Augusto Ferrari",
-  "main": "index.js",
+  "description": "Mi portfolio 2025 - Augusto Ferrari",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AugustoFerrari1/Portfolio-2024.git"
+    "url": "git+https://github.com/AugustoFerrari1/Portfolio-2025.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AugustoFerrari1/Portfolio-2024/issues"
+    "url": "https://github.com/AugustoFerrari1/Portfolio-2025/issues"
   },
-  "homepage": "https://github.com/AugustoFerrari1/Portfolio-2024#readme",
+  "homepage": "https://github.com/AugustoFerrari1/Portfolio-2025#readme",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "boxicons": "^2.1.4",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.14",
+    "split-type": "^0.3.4"
+  },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@vitejs/plugin-legacy": "^5.4.0",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
     "globals": "^16.2.0",
-    "prettier": "^3.6.1"
+    "prettier": "^3.6.1",
+    "vite": "^5.4.0"
   }
 }

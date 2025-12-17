@@ -1,11 +1,15 @@
 // Archivo para manejar animaciones de texto con SplitType
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitType from 'split-type';
+
 gsap.registerPlugin(ScrollTrigger);
 
 let divisoresTexto = [];
 let animacionesTexto = [];
 
 // Configura las animaciones para elementos con clase .nombre
-function configurarAnimacionesNombre() {
+export function configurarAnimacionesNombre() {
   // Revertir splits y animaciones anteriores
   divisoresTexto.forEach((split) => {
     if (split && split.revert) {
@@ -56,25 +60,21 @@ function configurarAnimacionesNombre() {
 }
 
 // Reinicia todas las animaciones de los elementos .nombre
-function reiniciarAnimacionesNombre() {
+export function reiniciarAnimacionesNombre() {
   // Revertir splits y animaciones anteriores
-  if (window.divisoresTexto) {
-    window.divisoresTexto.forEach((split) => {
-      if (split && split.revert) {
-        split.revert();
-      }
-    });
-    window.divisoresTexto = [];
-  }
+  divisoresTexto.forEach((split) => {
+    if (split && split.revert) {
+      split.revert();
+    }
+  });
+  divisoresTexto = [];
 
-  if (window.animacionesTexto) {
-    window.animacionesTexto.forEach((anim) => {
-      if (anim && anim.kill) {
-        anim.kill();
-      }
-    });
-    window.animacionesTexto = [];
-  }
+  animacionesTexto.forEach((anim) => {
+    if (anim && anim.kill) {
+      anim.kill();
+    }
+  });
+  animacionesTexto = [];
 
   // Limpiar todos los ScrollTriggers de .nombre
   ScrollTrigger.getAll().forEach((trigger) => {
@@ -94,7 +94,7 @@ function reiniciarAnimacionesNombre() {
 }
 
 // Inicializa las animaciones de texto revelado (.revelartext)
-function inicializarAnimacionesRevealText() {
+export function inicializarAnimacionesRevealText() {
   const elementosRevealText = document.querySelectorAll('.revelartext');
 
   elementosRevealText.forEach((elemento, i) => {
@@ -120,12 +120,12 @@ function inicializarAnimacionesRevealText() {
       { color: colorFondo },
       {
         color: colorTexto,
-        duration: 0.3,
-        stagger: 0.02,
+        duration: 0.8,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
           start: 'top 85%',
-          end: 'top 30%',
+          end: 'top 10%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -139,12 +139,12 @@ function inicializarAnimacionesRevealText() {
       { color: colorFondo },
       {
         color: colorSpan,
-        duration: 0.3,
-        stagger: 0.02,
+        duration: 0.8,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
           start: 'top 85%',
-          end: 'top 30%',
+          end: 'top 10%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -155,7 +155,7 @@ function inicializarAnimacionesRevealText() {
 }
 
 // Reinicia las animaciones de reveal text
-function reiniciarAnimacionesRevealText() {
+export function reiniciarAnimacionesRevealText() {
   const elementosRevealText = document.querySelectorAll('.revelartext');
 
   elementosRevealText.forEach((elemento, i) => {
@@ -180,12 +180,12 @@ function reiniciarAnimacionesRevealText() {
       { color: colorFondo },
       {
         color: colorTexto,
-        duration: 0.3,
-        stagger: 0.02,
+        duration: 0.8,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
           start: 'top 85%',
-          end: 'top 30%',
+          end: 'top 10%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -198,12 +198,12 @@ function reiniciarAnimacionesRevealText() {
       { color: colorFondo },
       {
         color: colorSpan,
-        duration: 0.3,
-        stagger: 0.02,
+        duration: 0.8,
+        stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
           start: 'top 85%',
-          end: 'top 30%',
+          end: 'top 10%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -214,7 +214,7 @@ function reiniciarAnimacionesRevealText() {
 }
 
 // Adapta largo de animacion expriencia
-function actualizarAnimacionExperiencia() {
+export function actualizarAnimacionExperiencia() {
   const experienceItems = document.querySelectorAll('.experiencia-item');
 
   experienceItems.forEach((item) => {
@@ -235,7 +235,7 @@ function actualizarAnimacionExperiencia() {
 }
 
 // Limpia todos los SplitTypes aplicados a elementos con animaciones
-function limpiarTodosSplitTypes() {
+export function limpiarTodosSplitTypes() {
   document.querySelectorAll('.revelartext').forEach((elem) => {
     if (elem._splitType) {
       elem._splitType.revert();
@@ -252,7 +252,7 @@ function limpiarTodosSplitTypes() {
 }
 
 // Reinicia todas las animaciones de texto
-function reiniciarTodasLasAnimacionesTexto() {
+export function reiniciarTodasLasAnimacionesTexto() {
   // Limpiar todos los ScrollTriggers
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
@@ -266,25 +266,3 @@ function reiniciarTodasLasAnimacionesTexto() {
     reiniciarAnimacionesRevealText();
   }, 100);
 }
-
-// Exponer funciones globalmente
-window.configurarAnimacionesNombre = configurarAnimacionesNombre;
-window.reiniciarAnimacionesNombre = reiniciarAnimacionesNombre;
-window.inicializarAnimacionesRevealText = inicializarAnimacionesRevealText;
-window.reiniciarAnimacionesRevealText = reiniciarAnimacionesRevealText;
-window.limpiarTodosSplitTypes = limpiarTodosSplitTypes;
-window.reiniciarTodasLasAnimacionesTexto = reiniciarTodasLasAnimacionesTexto;
-window.divisoresTexto = divisoresTexto;
-window.animacionesTexto = animacionesTexto;
-window.actualizarAnimacionExperiencia = actualizarAnimacionExperiencia;
-
-// Inicialización automática
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(() => {
-    configurarAnimacionesNombre();
-  }, 200);
-
-  setTimeout(() => {
-    inicializarAnimacionesRevealText();
-  }, 400);
-});

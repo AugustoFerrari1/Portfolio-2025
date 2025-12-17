@@ -1,8 +1,10 @@
 // Sistema de traducciones e internacionalización
+import { traducciones } from './lang.js';
+
 let idiomaActual = 'es';
 
 // Cambia el idioma de la página
-function cambiarIdioma() {
+export function cambiarIdioma() {
   idiomaActual = idiomaActual === 'es' ? 'en' : 'es';
 
   const botonIdioma = document.getElementById('lenguajebtn');
@@ -17,15 +19,22 @@ function cambiarIdioma() {
   });
 
   // Limpiar TODAS las animaciones ScrollTrigger
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  if (window.ScrollTrigger) {
+    window.ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  }
 
   requestAnimationFrame(() => {
     aplicarTraducciones();
 
+    // Actualizar animación de experiencia primero (antes de reiniciar animaciones)
     setTimeout(() => {
-      setTimeout(() => {
-        actualizarAnimacionExperiencia();
-      }, 100);
+      if (window.actualizarAnimacionExperiencia) {
+        window.actualizarAnimacionExperiencia();
+      }
+    }, 100);
+
+    // Reiniciar animaciones de texto
+    setTimeout(() => {
       if (window.reiniciarTodasLasAnimacionesTexto) {
         window.reiniciarTodasLasAnimacionesTexto();
       }
@@ -35,16 +44,12 @@ function cambiarIdioma() {
           elem.style.opacity = '';
         });
       }, 100);
-    }, 50);
+    }, 150);
   });
 }
 
 // Aplica las traducciones
-function aplicarTraducciones() {
-  if (typeof traducciones === 'undefined') {
-    return;
-  }
-
+export function aplicarTraducciones() {
   if (!traducciones[idiomaActual]) {
     return;
   }
@@ -72,11 +77,7 @@ function aplicarTraducciones() {
 }
 
 // Inicializa las traducciones en el idioma por defecto
-function inicializarTraducciones() {
-  if (typeof traducciones === 'undefined') {
-    return;
-  }
-
+export function inicializarTraducciones() {
   if (!traducciones[idiomaActual]) {
     return;
   }
@@ -94,11 +95,11 @@ function inicializarTraducciones() {
   });
 }
 
-function obtenerIdiomaActual() {
+export function obtenerIdiomaActual() {
   return idiomaActual;
 }
 
-function establecerIdioma(nuevoIdioma) {
+export function establecerIdioma(nuevoIdioma) {
   if (nuevoIdioma !== 'es' && nuevoIdioma !== 'en') {
     return;
   }
@@ -106,24 +107,3 @@ function establecerIdioma(nuevoIdioma) {
   idiomaActual = nuevoIdioma;
   aplicarTraducciones();
 }
-
-// Inicializar traducciones al cargar la página
-document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(() => {
-    if (typeof traducciones !== 'undefined') {
-      inicializarTraducciones();
-
-      setTimeout(() => {
-        actualizarAnimacionExperiencia();
-      }, 100);
-    }
-  }, 100);
-});
-
-// Exponer funciones globalmente
-window.cambiarIdioma = cambiarIdioma;
-window.aplicarTraducciones = aplicarTraducciones;
-window.inicializarTraducciones = inicializarTraducciones;
-window.obtenerIdiomaActual = obtenerIdiomaActual;
-window.establecerIdioma = establecerIdioma;
-window.idiomaActual = idiomaActual;

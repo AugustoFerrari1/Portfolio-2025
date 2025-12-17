@@ -1,4 +1,6 @@
 // Archivo para manejar la navegación suave y el scroll
+import Lenis from 'lenis';
+
 const lenis = new Lenis({
   duration: 1.2,
   smooth: true,
@@ -16,7 +18,7 @@ function bucleAnimacionScroll(tiempo) {
 }
 
 // Configura la navegación suave hacia secciones específicas
-function configurarNavegacionSuave() {
+export function configurarNavegacionSuave() {
   const enlacesNavegacion = {
     sobremibtn: '#sobremi',
     atributosbtn: '#atributos',
@@ -37,7 +39,7 @@ function configurarNavegacionSuave() {
   });
 }
 
-function navegarHaciaSeccion(selector) {
+export function navegarHaciaSeccion(selector) {
   const elemento = document.querySelector(selector);
   if (elemento) {
     elemento.scrollIntoView({ behavior: 'smooth' });
@@ -62,23 +64,22 @@ function configurarEventosNavegacion() {
   });
 }
 
-function abrirEnlaceExterno(elemento) {
+export function abrirEnlaceExterno(elemento) {
   const url = elemento.getAttribute('data-url');
   if (url) {
     window.open(url, '_blank');
   }
 }
 
+// Función para compatibilidad con onclick del HTML
+export function direciones(elemento) {
+  abrirEnlaceExterno(elemento);
+}
+
 // Inicializar scroll suave
 requestAnimationFrame(bucleAnimacionScroll);
 
-// Configurar navegación al cargar la página
-document.addEventListener('DOMContentLoaded', function () {
-  configurarNavegacionSuave();
-  configurarEventosNavegacion();
-});
-
-// Exponer funciones globalmente
-window.navegarHaciaSeccion = navegarHaciaSeccion;
+// Exponer funciones globalmente para compatibilidad con HTML
 window.abrirEnlaceExterno = abrirEnlaceExterno;
 window.configurarNavegacionSuave = configurarNavegacionSuave;
+window.direciones = direciones;

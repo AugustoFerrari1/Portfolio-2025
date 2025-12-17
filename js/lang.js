@@ -1,4 +1,5 @@
-window.traducciones = {
+// Traducciones e idiomas
+export const traducciones = {
   es: {
     // Navegación
     'nav.sobre': 'SOBRE MI',
@@ -34,6 +35,24 @@ window.traducciones = {
       '<span>✮</span> Automatización de <span>PRUEBAS UNITARIAS</span>',
     'exp.7':
       '<span>✮</span> Ejecución de <span>PRUEBAS EXPLORATORIAS</span>',
+    'exp.8':
+      '<span>✮</span> Optimización de <span>CODIGO</span> y <span>ORDEN</span> de <span>PROGRAMAS</span>',
+    'exp.desc.1':
+      'Desarrollo de sitios web responsivos y modernos utilizando tecnologías como HTML5, CSS3, JavaScript y frameworks modernos. Creación de interfaces intuitivas y optimizadas para diferentes dispositivos.',
+    'exp.desc.2':
+      'Desarrollo de aplicaciones web y de escritorio con arquitecturas escalables. Implementación de funcionalidades complejas y sistemas robustos que mejoran la eficiencia operativa.',
+    'exp.desc.3':
+      'Diseño e implementación de sistemas personalizados para automatizar procesos logísticos y operativos. Soluciones adaptadas a las necesidades específicas de cada negocio.',
+    'exp.desc.4':
+      'Creación de interfaces administrativas intuitivas y funcionales. Diseño de dashboards y paneles de control que facilitan la gestión y visualización de datos.',
+    'exp.desc.5':
+      'Diseño, implementación y optimización de bases de datos relacionales. Administración de esquemas, consultas complejas y mantenimiento de la integridad de los datos.',
+    'exp.desc.6':
+      'Implementación de suites de pruebas automatizadas para garantizar la calidad del código. Desarrollo de tests unitarios que validan funcionalidades específicas del sistema.',
+    'exp.desc.7':
+      'Realización de pruebas exploratorias para identificar bugs y mejorar la experiencia de usuario. Análisis exhaustivo de funcionalidades y detección de posibles mejoras.',
+    'exp.desc.8':
+      'Optimización y refactorización de código para mejorar el rendimiento y la mantenibilidad. Organización y estructuración de programas siguiendo mejores prácticas y principios de diseño. Reducción de complejidad y mejora de la eficiencia del código.',
 
     // Atributos
     atr: 'ATRIBUTOS',
@@ -69,9 +88,19 @@ window.traducciones = {
     alert:
       '<strong>¡Atención!  </strong>Este proyecto ha sido retirado y no está disponible para su visualización en línea.',
 
+    // AlquilerUY
+    alquileruy: 'ALQUILERUY',
+    'card3.1':
+      '<strong>AlquilerUY</strong> es una <span>plataforma marketplace</span> de alquiler de <span>objetos y propiedades</span> en Uruguay. Permite a los usuarios <span>buscar y alquilar</span> desde casas y autos hasta herramientas y equipos, mientras que los vendedores pueden <span>publicar sus productos</span> y <span>gestionar reservas</span> de manera eficiente.',
+    'card3.2':
+      'La plataforma incluye un <span>sistema de búsqueda avanzada</span> con <span>categorías organizadas</span>, <span>gestión completa de reservas</span>, <span>pagos integrados con MercadoPago</span> y un <span>sistema de reseñas y calificaciones</span> para garantizar la confianza entre usuarios.',
+    'card3.3':
+      'Desarrollada con <span>Next.js 14</span> y <span>React 18</span> utilizando el <span>App Router</span> para <span>renderizado del lado del servidor</span> y <span>optimización SEO</span>. El backend utiliza <span>Prisma ORM</span> con <span>PostgreSQL</span> para la gestión de datos, <span>NextAuth.js</span> para <span>autenticación segura</span>, y <span>MercadoPago</span> para <span>procesamiento de pagos</span>. La interfaz está construida con <span>Tailwind CSS</span> y componentes accesibles de <span>Radix UI</span>, mientras que <span>TypeScript</span> garantiza la <span>seguridad de tipos</span> en todo el proyecto.',
+
     // Fechas
-    '6mago': 'hace 6 meses',
+    '6mago': 'hace 1 año',
     '2yago': 'hace 2 año',
+    reciente: 'Proyecto reciente',
 
     // Contacto
     contact: 'CONTACTO',
@@ -111,6 +140,24 @@ window.traducciones = {
       '<span>✮</span>  Automation of <span>UNIT TESTING</span>',
     'exp.7':
       '<span>✮</span>  Execution of <span>EXPLORATORY TESTING</span>',
+    'exp.8':
+      '<span>✮</span> Optimization of <span>CODE</span> and <span>PROGRAM</span> <span>ORGANIZATION</span>',
+    'exp.desc.1':
+      'Development of responsive and modern websites using technologies such as HTML5, CSS3, JavaScript and modern frameworks. Creation of intuitive and optimized interfaces for different devices.',
+    'exp.desc.2':
+      'Development of web and desktop applications with scalable architectures. Implementation of complex functionalities and robust systems that improve operational efficiency.',
+    'exp.desc.3':
+      'Design and implementation of customized systems to automate logistical and operational processes. Solutions adapted to the specific needs of each business.',
+    'exp.desc.4':
+      'Creation of intuitive and functional administrative interfaces. Design of dashboards and control panels that facilitate data management and visualization.',
+    'exp.desc.5':
+      'Design, implementation and optimization of relational databases. Schema administration, complex queries and data integrity maintenance.',
+    'exp.desc.6':
+      'Implementation of automated test suites to ensure code quality. Development of unit tests that validate specific system functionalities.',
+    'exp.desc.7':
+      'Conducting exploratory tests to identify bugs and improve user experience. Exhaustive analysis of functionalities and detection of possible improvements.',
+    'exp.desc.8':
+      'Code optimization and refactoring to improve performance and maintainability. Organization and structuring of programs following best practices and design principles. Complexity reduction and code efficiency improvement.',
 
     // Atributos
     atr: 'ATTRIBUTES',
@@ -146,9 +193,19 @@ window.traducciones = {
     alert:
       '<strong>Attention!</strong> This project has been removed and is not available for online viewing.',
 
+    // AlquilerUY
+    alquileruy: 'ALQUILERUY',
+    'card3.1':
+      '<strong>AlquilerUY</strong> is a <span>marketplace platform</span> for renting <span>objects and properties</span> in Uruguay. It allows users to <span>search and rent</span> from houses and cars to tools and equipment, while sellers can <span>publish their products</span> and <span>manage reservations</span> efficiently.',
+    'card3.2':
+      'The platform includes an <span>advanced search system</span> with <span>organized categories</span>, <span>complete reservation management</span>, <span>integrated payments with MercadoPago</span>, and a <span>review and rating system</span> to ensure trust between users.',
+    'card3.3':
+      'Developed with <span>Next.js 14</span> and <span>React 18</span> using the <span>App Router</span> for <span>server-side rendering</span> and <span>SEO optimization</span>. The backend uses <span>Prisma ORM</span> with <span>PostgreSQL</span> for data management, <span>NextAuth.js</span> for <span>secure authentication</span>, and <span>MercadoPago</span> for <span>payment processing</span>. The interface is built with <span>Tailwind CSS</span> and accessible components from <span>Radix UI</span>, while <span>TypeScript</span> ensures <span>type safety</span> throughout the project.',
+
     // Fechas
-    '6mago': '6 months ago',
+    '6mago': '1 year ago',
     '2yago': '2 years ago',
+    reciente: 'Recent project',
 
     // Contacto
     contact: 'CONTACT',

@@ -1,6 +1,6 @@
-# Portfolio de Augusto Ferrari - 2024-2025
+# Portfolio de Augusto Ferrari - 2025
 
-¡Hola! Soy **Augusto Ferrari**, Este repositorio es mi portfolio personal para el año 2024-2025, donde presento algunos de mis proyectos y habilidades en desarrollo front-end y más allá.
+¡Hola! Soy **Augusto Ferrari**, Este repositorio es mi portfolio personal para el año 2025, donde presento algunos de mis proyectos y habilidades en desarrollo front-end y más allá.
 
 Mi objetivo es combinar la funcionalidad con un diseño intuitivo y llamativo, siempre buscando las mejores prácticas y aprendiendo nuevas tecnologías.
 
@@ -55,11 +55,17 @@ HTML · CSS · JavaScript · PHP
 
 ## Tecnologías Utilizadas en este Portfolio
 
-Este portfolio, como base, está construido con:
+Este portfolio está construido con tecnologías modernas:
 
 * **HTML5:** Estructura semántica del contenido.
 * **CSS3:** Estilos y diseño responsivo.
-* **JavaScript:** Interactividad y lógica front-end.
+* **JavaScript (ES6+):** Interactividad y lógica front-end con módulos ES6.
+* **Vite:** Build tool moderno y rápido para desarrollo y producción.
+* **Bootstrap 5:** Framework CSS para diseño responsivo.
+* **GSAP:** Biblioteca de animaciones avanzadas.
+* **Lenis:** Scroll suave y fluido.
+* **AOS (Animate On Scroll):** Animaciones al hacer scroll.
+* **SplitType:** División de texto para animaciones.
 * **Control de Versiones:** Git & GitHub
 
 ---
@@ -70,13 +76,67 @@ Si deseas explorar el código o ejecutar este portfolio en tu máquina local, si
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone [https://github.com/AugustoFerrari1/Portfolio-2024.git](https://github.com/AugustoFerrari1/Portfolio-2024.git)
+    git clone https://github.com/AugustoFerrari1/Portfolio-2025.git
     ```
 2.  **Navega al directorio del proyecto:**
     ```bash
-    cd Portfolio-2024
+    cd Portfolio-2025
     ```
-3.  **Abre `index.html`:** Para la mayoría de los navegadores, simplemente puedes abrir el archivo `index.html` directamente en tu navegador o usar una extensión como "Live Server" en VS Code para tener un servidor local.
+3.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
+4.  **Ejecuta el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+    Esto iniciará un servidor de desarrollo con Vite en `http://localhost:3000` (se abrirá automáticamente en tu navegador).
+
+5.  **Para crear una build de producción:**
+    ```bash
+    npm run build
+    ```
+    Los archivos compilados estarán en la carpeta `dist/`.
+
+6.  **Para previsualizar la build de producción:**
+    ```bash
+    npm run preview
+    ```
+
+---
+
+## Despliegue en GitHub Pages
+
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages usando GitHub Actions.
+
+### Configuración Automática (Recomendado)
+
+El proyecto incluye un workflow de GitHub Actions (`.github/workflows/deploy.yml`) que:
+1. Construye el proyecto automáticamente cuando haces push a la rama `main` o `master`
+2. Despliega los archivos compilados a GitHub Pages
+
+**Pasos para activar GitHub Pages:**
+
+1. Ve a la configuración de tu repositorio en GitHub
+2. Navega a **Settings** → **Pages**
+3. En **Source**, selecciona **GitHub Actions**
+4. El workflow se ejecutará automáticamente en cada push
+
+### Configuración Manual
+
+Si prefieres desplegar manualmente:
+
+1. **Construye el proyecto:**
+   ```bash
+   npm run build
+   ```
+
+2. **Configura GitHub Pages:**
+   - Ve a **Settings** → **Pages** en tu repositorio
+   - En **Source**, selecciona la rama donde está la carpeta `dist`
+   - O usa la carpeta `dist` como raíz si está en la rama `gh-pages`
+
+**Nota:** Si tu repositorio está en `usuario.github.io/Portfolio-2025`, el proyecto ya está configurado. Si está en la raíz (`usuario.github.io`), cambia el `base` en `vite.config.js` a `'/'`.
 
 ---
 
@@ -87,7 +147,7 @@ Si deseas explorar el código o ejecutar este portfolio en tu máquina local, si
 * **Correo Electrónico:** https://mail.google.com/mail/u/0/?fs=1&to=augustoferrari100@gmail.com&su=CONTACTO&body=Hola,%20que%20tal...&bcc=augustoferrari100@gmail.com&tf=cm
 * **LinkedIn:** www.linkedin.com/in/augustoferrari1
 * **GitHub:** https://github.com/AugustoFerrari1
-* **Sitio Web Personal:** https://augustoferrari1.github.io/Portfolio-2024/
+* **Sitio Web Personal:** https://augustoferrari1.github.io/Portfolio-2025/
 
 ---
 

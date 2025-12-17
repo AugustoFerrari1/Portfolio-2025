@@ -5,10 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/in.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Portfolio - Augusto Ferrari</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/logofir-favicon.png">
     <meta name="title" content="Portfolio de Augusto Ferrari" />
@@ -22,6 +18,38 @@
 </head>
 <body data-lenis>
     <div data-lenis-scroll>
+        <!-- Barra de progreso lateral -->
+        <div class="scroll-progress-bar">
+            <div class="progress-line">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-markers">
+                <div class="marker" data-section="inicio">
+                    <div class="marker-dot"></div>
+                    <div class="marker-text">INICIO</div>
+                </div>
+                <div class="marker" data-section="sobremi">
+                    <div class="marker-dot"></div>
+                    <div class="marker-text">SOBRE MI</div>
+                </div>
+                <div class="marker" data-section="experiencia">
+                    <div class="marker-dot"></div>
+                    <div class="marker-text">EXPERIENCIA</div>
+                </div>
+                <div class="marker" data-section="atributos">
+                    <div class="marker-dot"></div>
+                    <div class="marker-text">ATRIBUTOS</div>
+                </div>
+                <div class="marker" data-section="trabajos">
+                    <div class="marker-dot"></div>
+                    <div class="marker-text">TRABAJOS</div>
+                </div>
+                <div class="marker marker-end" data-section="end">
+                    <div class="marker-dot"></div>
+                    <div class="marker-text">FIN</div>
+                </div>
+            </div>
+        </div>
         <header>
             <div class="menubar">
                 <img src="img/logofir-favicon.png" alt="">
@@ -61,20 +89,18 @@
                 <p class="nombre" data-i18n="sobre_mi">SOBRE MI</p>
                 <h2 class="revelartext desc" data-i18n="sobre_mi_texto" data-bg-color="#353535" data-fg-color="white">Estudiante de <span>Ingeniería en Sistemas</span> en la <span>ORT Uruguay</span>, con formación en <span>desarrollo web</span> y <span>bases de datos</span>.<br> 
                 He creado más de <span>5 proyectos personales</span> en varias plataformas, aplicando <span>buenas prácticas de código</span> y <span>lógica backend.</span></h2>
-                <button data-i18n="btncv" type="button" class="btn btn-outline-primary id1" data-toggle="modal" data-target="#pdfModal">VER CV</button>
-                <button data-i18n="btncer" type="button" class="btn btn-outline-primary id2" data-toggle="modal" data-target="#verCertificado">CERTIFICADO</button>
+                <button data-i18n="btncv" type="button" class="btn btn-outline-primary id1" data-bs-toggle="modal" data-bs-target="#pdfModal">VER CV</button>
+                <button data-i18n="btncer" type="button" class="btn btn-outline-primary id2" data-bs-toggle="modal" data-bs-target="#verCertificado">CERTIFICADO</button>
                 <!-- Logica Modals -->
-                <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-superxl" role="document">
+                <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-superxl">
                         <div class="modal-content">
                             <div class="modal-header border-0">
                                 <h3 class="modal-title" id="pdfModalLabel" data-i18n="pre.cv">Previsualización de CV</h3>
-                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body p-0">
-                                <iframe src="docs/Informe_1.pdf" frameborder="0" width="100%" height="600px" style="border-radius: 5px;"></iframe>
+                                <iframe src="docs/cv-augustoferrari.pdf" frameborder="0" width="100%" height="600px" style="border-radius: 5px;"></iframe>
                             </div>
 
                             <div class="modal-footer border-0">
@@ -86,14 +112,12 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="verCertificado" tabindex="-1" role="dialog" aria-labelledby="certificadoLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-superxl" role="document">
+                <div class="modal fade" id="verCertificado" tabindex="-1" aria-labelledby="certificadoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-superxl">
                         <div class="modal-content">
                             <div class="modal-header border-0">
                                 <h3 class="modal-title" id="certificadoLabel" data-i18n="certificado">CERTIFICADO</h3>
-                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
                             <div class="modal-body p-0">
                                 <iframe src="docs/AUGUSTO FERRARI - PROGRAMADOR WEB PHP Y MYSQL.pdf" frameborder="0" width="100%" height="400px" style="border-radius: 5px;"></iframe>
@@ -105,14 +129,38 @@
                         </div>
                     </div>
                 </div>
-                <p class="nombre" id="espacio" data-i18n="exp">EXPERIENCIA</p>
-                <h2 class="experiencia-item" data-i18n="exp.1"><span>✮</span> Desarrollo <span>WEB</span></h2>
+                <p class="nombre" id="espacio" data-i18n="exp">EXPERIENCIA</p><h2 class="experiencia-item" data-i18n="exp.1"><span>✮</span> Desarrollo <span>WEB</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.1">
+                    Desarrollo de sitios web responsivos y modernos utilizando tecnologías como HTML5, CSS3, JavaScript y frameworks modernos. Creación de interfaces intuitivas y optimizadas para diferentes dispositivos.
+                </div>
                 <h2 class="experiencia-item" data-i18n="exp.2"><span>✮</span> Desarrollo de <span>APLICACIONES</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.2">
+                    Desarrollo de aplicaciones web y de escritorio con arquitecturas escalables. Implementación de funcionalidades complejas y sistemas robustos que mejoran la eficiencia operativa.
+                </div>
                 <h2 class="experiencia-item" data-i18n="exp.3"><span>✮</span> Automatizacion y logistica con <span>SISTEMAS</span> a <span>MEDIDA</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.3">
+                    Diseño e implementación de sistemas personalizados para automatizar procesos logísticos y operativos. Soluciones adaptadas a las necesidades específicas de cada negocio.
+                </div>
                 <h2 class="experiencia-item" data-i18n="exp.4"><span>✮</span> Diseño de interfaces de <span>GESTION</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.4">
+                    Creación de interfaces administrativas intuitivas y funcionales. Diseño de dashboards y paneles de control que facilitan la gestión y visualización de datos.
+                </div>
                 <h2 class="experiencia-item" data-i18n="exp.5"><span>✮</span> Codificacion y administracion de <span>BASE</span> de <span>DATOS</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.5">
+                    Diseño, implementación y optimización de bases de datos relacionales. Administración de esquemas, consultas complejas y mantenimiento de la integridad de los datos.
+                </div>
                 <h2 class="experiencia-item" data-i18n="exp.6"><span>✮</span> Automatización de <span>PRUEBAS UNITARIAS</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.6">
+                    Implementación de suites de pruebas automatizadas para garantizar la calidad del código. Desarrollo de tests unitarios que validan funcionalidades específicas del sistema.
+                </div>
                 <h2 class="experiencia-item" data-i18n="exp.7"><span>✮</span> Ejecución de <span>PRUEBAS EXPLORATORIAS</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.7">
+                    Realización de pruebas exploratorias para identificar bugs y mejorar la experiencia de usuario. Análisis exhaustivo de funcionalidades y detección de posibles mejoras.
+                </div>
+                <h2 class="experiencia-item" data-i18n="exp.8"><span>✮</span> Optimización de <span>CODIGO</span> y <span>ORDEN</span> de <span>PROGRAMAS</span></h2>
+                <div class="experiencia-descripcion" data-i18n="exp.desc.8">
+                    Optimización y refactorización de código para mejorar el rendimiento y la mantenibilidad. Organización y estructuración de programas siguiendo mejores prácticas y principios de diseño. Reducción de complejidad y mejora de la eficiencia del código.
+                </div>
             </div>
         </section>
         <section class="atributos" id="atributos">
@@ -149,10 +197,29 @@
         </section>
         <section id="trabajos" class="trabajos">
             <p class="nombre" data-i18n="trabajos">TRABAJOS</p>
-            <div class="card text-center card1">
-                <div class="card-header" data-i18n="segundo">
-                    Segundo Trabajo
+            <div class="card text-center cardsep card1">
+                <div class="card-body">
+                    <h2 class="card-title" data-i18n="alquileruy">ALQUILERUY</h2>
+                    <p class="card-text" data-i18n="card3.1">
+                        <strong>AlquilerUY</strong> es una <span>plataforma marketplace</span> de alquiler de <span>objetos y propiedades</span> en Uruguay. Permite a los usuarios <span>buscar y alquilar</span> desde casas y autos hasta herramientas y equipos, mientras que los vendedores pueden <span>publicar sus productos</span> y <span>gestionar reservas</span> de manera eficiente.
+                    </p>
+                    <p class="card-text" data-i18n="card3.2">
+                        La plataforma incluye un <span>sistema de búsqueda avanzada</span> con <span>categorías organizadas</span>, <span>gestión completa de reservas</span>, <span>pagos integrados con MercadoPago</span> y un <span>sistema de reseñas y calificaciones</span> para garantizar la confianza entre usuarios.
+                    </p>
+                    <p class="card-text" data-i18n="card3.3">
+                        Desarrollada con <span>Next.js 14</span> y <span>React 18</span> utilizando el <span>App Router</span> para <span>renderizado del lado del servidor</span> y <span>optimización SEO</span>. El backend utiliza <span>Prisma ORM</span> con <span>PostgreSQL</span> para la gestión de datos, <span>NextAuth.js</span> para <span>autenticación segura</span>, y <span>MercadoPago</span> para <span>procesamiento de pagos</span>. La interfaz está construida con <span>Tailwind CSS</span> y componentes accesibles de <span>Radix UI</span>, mientras que <span>TypeScript</span> garantiza la <span>seguridad de tipos</span> en todo el proyecto.
+                    </p>
+                    <a href="#" id="btnAlquilerUY" class="btn btn-outline-primary" data-i18n="card.ver">VISITAR</a>
+                    <div id="alertaAlquilerUY" class="alert alert-danger alert-dismissible alert-smooth d-none" role="alert" data-i18n="alert">
+                        <strong>¡Atención!</strong> Este proyecto ha sido retirado y no está disponible para su visualización en línea.
+                        <button type="button" class="btn-close" aria-label="Close" onclick="cerrarAlertaAlquilerUY()"></button>
+                    </div>
                 </div>
+                <div class="card-footer text-muted" data-i18n="reciente">
+                    Proyecto reciente
+                </div>
+            </div>
+            <div class="card text-center card2">
                 <div class="card-body">
                     <h2 class="card-title">PIXELSHIFT WEB</h2>
                     <p class="card-text"  data-i18n="card1.1">Desarrollamos una <span>página web</span> especializada en la <span>venta de servicios digitales</span>, diseñada para ofrecer soluciones digitales a empresas, emprendedores o particulares. <br></p>
@@ -163,13 +230,10 @@
                     <a href="https://pixelshft.com/inicio/" target="_blank" class="btn btn-outline-primary" data-i18n="card.ver">VISITAR</a>
                 </div>
                 <div class="card-footer text-muted" data-i18n="6mago">
-                    hace 6 meses
+                    hace 1 año
                 </div>
             </div>
-            <div class="card text-center cardsep card2">
-                <div class="card-header" data-i18n="primer">
-                    Primer Trabajo
-                </div>
+            <div class="card text-center cardsep card3">
                 <div class="card-body">
                     <h2 class="card-title" data-i18n="automotora">AUTOMOTORA</h2>
                     <p class="card-text" data-i18n="card2.1">Desarrollamos una <span>página web</span> integral para una automotora, diseñada para ofrecer una <span>experiencia de usuario completa</span> y <span>personalizada</span>. La plataforma incluye un <span>sistema completo de cuentas y perfiles</span>, permitiendo a los usuarios puedan <span>editar</span> todos los campos de su información personal de manera <span>sencilla y segura.</span></p>
@@ -181,9 +245,7 @@
                     <a href="#" id="btnAutomotora" class="btn btn-outline-primary" data-i18n="card.ver">VISITAR</a>
                     <div id="alertaAutomotora" class="alert alert-danger alert-dismissible alert-smooth d-none" role="alert" data-i18n="alert">
                         <strong>¡Atención!</strong> Este proyecto ha sido retirado y no está disponible para su visualización en línea.
-                        <button type="button" class="close" aria-label="Close" onclick="cerrarAlerta()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" aria-label="Close" onclick="cerrarAlertaAutomotora()"></button>
                     </div>
                 </div>
                 <div class="card-footer text-muted" data-i18n="2yago">
@@ -202,27 +264,10 @@
             </div>
         </section>    
         <footer>
-            <p>Augusto Ferrari Desing - Portfolio 2024</p>
+            <p>Augusto Ferrari Desing - Portfolio 2025</p>
         </footer>
-        <!-- GSAP Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-        <script src="https://unpkg.com/split-type"></script>
-        <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script> 
-
-        <!-- Boostrap Scripts -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
-        
-        <!-- Mis Scripts -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="js/lang.js"></script>
-        <script src="js/sistema-traducciones.js"></script>
-        <script src="js/componentes-ui.js"></script>
-        <script src="js/animaciones-texto.js"></script>
-        <script src="js/navegacion-scroll.js"></script>
-        <script src="js/principal.js"></script>
+        <!-- Script principal -->
+        <script type="module" src="/js/main.js"></script>
     </div>
 </body>
 </html>

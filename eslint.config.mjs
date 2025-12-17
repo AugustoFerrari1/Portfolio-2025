@@ -13,15 +13,10 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
-        gsap: 'readonly',
-        ScrollTrigger: 'readonly',
-        SplitType: 'readonly',
-        Lenis: 'readonly',
-        traducciones: 'readonly',
-        AOS: 'readonly',
-        configurarAnimacionesNombre: 'readonly',
-        actualizarAnimacionExperiencia: 'readonly',
+        ...globals.node,
       },
+      ecmaVersion: 2022,
+      sourceType: 'module',
     },
     rules: {
       ...js.configs.recommended.rules,

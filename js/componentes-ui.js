@@ -1,7 +1,7 @@
 let temporizadorAlerta = null;
 let estaAnimando = false;
 
-function configurarAtributosAOS() {
+export function configurarAtributosAOS() {
   document.querySelectorAll('.progress').forEach((el) => {
     el.setAttribute('data-aos', 'fade-left');
   });
@@ -12,7 +12,7 @@ function configurarAtributosAOS() {
 }
 
 // Muestra la alerta de la automotora
-function mostrarAlertaAutomotora() {
+export function mostrarAlertaAutomotora() {
   if (estaAnimando) {
     return;
   }
@@ -48,7 +48,46 @@ function mostrarAlertaAutomotora() {
   }, 5000);
 }
 
-function cerrarAlertaAutomotora() {
+// Muestra la alerta de AlquilerUY
+export function mostrarAlertaAlquilerUY() {
+  if (estaAnimando) {
+    return;
+  }
+
+  const alerta = document.getElementById('alertaAlquilerUY');
+
+  if (alerta && alerta.classList.contains('show')) {
+    return;
+  }
+
+  if (temporizadorAlerta) {
+    clearTimeout(temporizadorAlerta);
+    temporizadorAlerta = null;
+  }
+
+  estaAnimando = true;
+
+  if (alerta) {
+    alerta.classList.remove('d-none');
+    alerta.classList.remove('hiding', 'show');
+
+    // Forzar reflow
+    alerta.offsetHeight;
+
+    alerta.classList.add('show');
+
+    setTimeout(() => {
+      estaAnimando = false;
+    }, 500);
+
+    // Auto-cerrar después de 5 segundos
+    temporizadorAlerta = setTimeout(() => {
+      cerrarAlertaAlquilerUY();
+    }, 5000);
+  }
+}
+
+export function cerrarAlertaAutomotora() {
   if (estaAnimando) {
     return;
   }
@@ -56,6 +95,34 @@ function cerrarAlertaAutomotora() {
   const alerta = document.getElementById('alertaAutomotora');
 
   if (!alerta.classList.contains('show')) {
+    return;
+  }
+
+  if (temporizadorAlerta) {
+    clearTimeout(temporizadorAlerta);
+    temporizadorAlerta = null;
+  }
+
+  estaAnimando = true;
+
+  alerta.classList.add('hiding');
+  alerta.classList.remove('show');
+
+  setTimeout(() => {
+    alerta.classList.remove('hiding', 'show');
+    alerta.classList.add('d-none');
+    estaAnimando = false;
+  }, 500);
+}
+
+export function cerrarAlertaAlquilerUY() {
+  if (estaAnimando) {
+    return;
+  }
+
+  const alerta = document.getElementById('alertaAlquilerUY');
+
+  if (!alerta || !alerta.classList.contains('show')) {
     return;
   }
 
@@ -86,12 +153,30 @@ function configurarBotonAutomotora() {
   }
 }
 
+function configurarBotonAlquilerUY() {
+  const botonAlquilerUY = document.getElementById('btnAlquilerUY');
+  if (botonAlquilerUY) {
+    botonAlquilerUY.addEventListener('click', function (e) {
+      e.preventDefault();
+      mostrarAlertaAlquilerUY();
+    });
+  }
+}
+
 function configurarBotonCerrarAlerta() {
-  const botonCerrar = document.querySelector('#alertaAutomotora .close');
+  const botonCerrar = document.querySelector('#alertaAutomotora .btn-close');
   if (botonCerrar) {
     botonCerrar.addEventListener('click', function (e) {
       e.preventDefault();
       cerrarAlertaAutomotora();
+    });
+  }
+
+  const botonCerrarAlquilerUY = document.querySelector('#alertaAlquilerUY .btn-close');
+  if (botonCerrarAlquilerUY) {
+    botonCerrarAlquilerUY.addEventListener('click', function (e) {
+      e.preventDefault();
+      cerrarAlertaAlquilerUY();
     });
   }
 }
@@ -109,10 +194,23 @@ function configurarCierreFueraAlerta() {
     ) {
       cerrarAlertaAutomotora();
     }
+
+    const alertaAlquilerUY = document.getElementById('alertaAlquilerUY');
+    const botonAlquilerUY = document.getElementById('btnAlquilerUY');
+
+    if (
+      alertaAlquilerUY &&
+      alertaAlquilerUY.classList.contains('show') &&
+      !alertaAlquilerUY.contains(e.target) &&
+      botonAlquilerUY &&
+      !botonAlquilerUY.contains(e.target)
+    ) {
+      cerrarAlertaAlquilerUY();
+    }
   });
 }
 
-function mostrarModal(idModal) {
+export function mostrarModal(idModal) {
   const modal = document.getElementById(idModal);
   if (modal) {
     modal.classList.add('show');
@@ -121,7 +219,7 @@ function mostrarModal(idModal) {
   }
 }
 
-function ocultarModal(idModal) {
+export function ocultarModal(idModal) {
   const modal = document.getElementById(idModal);
   if (modal) {
     modal.classList.remove('show');
@@ -130,27 +228,16 @@ function ocultarModal(idModal) {
   }
 }
 
-function configurarEventosUI() {
+export function configurarEventosUI() {
   configurarAtributosAOS();
   configurarBotonAutomotora();
+  configurarBotonAlquilerUY();
   configurarBotonCerrarAlerta();
   configurarCierreFueraAlerta();
 }
 
-// Inicializar componentes UI al cargar la página
-document.addEventListener('DOMContentLoaded', function () {
-  configurarEventosUI();
-
-  AOS.init({
-    duration: 1500,
-    easing: 'ease-in-out',
-    once: true,
-  });
-});
-
-// Exponer funciones globalmente
+// Exponer funciones globalmente para compatibilidad con HTML
 window.mostrarAlertaAutomotora = mostrarAlertaAutomotora;
 window.cerrarAlertaAutomotora = cerrarAlertaAutomotora;
-window.mostrarModal = mostrarModal;
-window.ocultarModal = ocultarModal;
-window.configurarEventosUI = configurarEventosUI;
+window.mostrarAlertaAlquilerUY = mostrarAlertaAlquilerUY;
+window.cerrarAlertaAlquilerUY = cerrarAlertaAlquilerUY;

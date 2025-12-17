@@ -41,7 +41,9 @@ jobs:
       - name: Copy docs to dist
         run: |
           mkdir -p dist/docs
-          cp docs/cv-augustoferrari.pdf dist/docs/
+          cp "docs/cv-augustoferrari.pdf" dist/docs/
+          cp "docs/certificado.pdf" dist/docs/
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

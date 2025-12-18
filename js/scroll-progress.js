@@ -80,8 +80,9 @@ export function inicializarBarraProgreso() {
 
 function actualizarProgreso(progress) {
   if (progressFill) {
-    // Actualizar el porcentaje de llenado desde el inicio (0%)
-    progressFill.style.height = `${progress * 100}%`;
+    // Usar transform para un rendimiento más fluido (aprovecha la GPU)
+    const clampedProgress = Math.max(0, Math.min(1, progress));
+    progressFill.style.transform = `scaleY(${clampedProgress})`;
   }
 }
 

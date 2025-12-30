@@ -56,8 +56,10 @@ export const traducciones = {
 
     // Atributos
     atr: 'ATRIBUTOS',
-    interfaz: 'INTERFAZ GRAFICA',
-    lenguaje: 'LENGUAJES',
+    'skills.core': 'Lenguajes Core:',
+    'skills.frontend': 'Frontend:',
+    'skills.backend': 'Backend:',
+    'skills.infra': 'Infraestructura:',
 
     // Trabajos
     trabajos: 'TRABAJOS',
@@ -67,22 +69,16 @@ export const traducciones = {
 
     // Cards de trabajos
     'card1.1':
-      'Desarrollamos una <span>página web</span> especializada en la <span>venta de servicios digitales</span>, diseñada para ofrecer soluciones digitales a empresas, emprendedores o particulares. <br>',
+      '<strong>E-commerce de Servicios Digitales</strong>. Sitio especializado en la <span>venta de soluciones tecnológicas</span> para empresas.',
     'card1.2':
-      'Páginas Web:</span> Creación y desarrollo de sitios web <span>intuitivos</span> y <span>optimizados</span> para satisfacer las necesidades específicas de cada cliente. <br>',
-    'card1.3':
-      '<span>Tiendas Online:</span> Implementación de comercios electrónicos <span>completos</span>, con todas las <span>funcionalidades necesarias</span> para vender productos y servicios en línea de manera <span>eficiente y segura</span>. <br>',
-    'card1.4':
-      '<span>Sistemas de Gestión:</span> Desarrollo de sistemas de gestión adaptados a las <span>necesidades</span> de cada negocio, ya sea en <span>formato web</span> o como <span>aplicaciones de escritorio</span>, permitiendo una administración <span>eficiente y accesible</span> desde cualquier dispositivo. <br>',
-    'card1.5':
-      'Esta página web no solo <span>facilita</span> la adquisición de estos servicios, sino que también ofrece una <span>experiencia</span> de usuario <span>intuitiva</span>, con un <span>diseño atractivo</span> y un <span>proceso de compra simplificado</span>',
+      '<strong>Enfoque:</strong> <span>Experiencia de usuario (UX) intuitiva</span>, <span>catálogo dinámico de servicios</span> y <span>procesos de compra simplificados</span> para <span>maximizar la conversión</span>.',
 
     'card2.1':
-      'Desarrollamos una <span>página web</span> integral para una automotora, diseñada para ofrecer una <span>experiencia de usuario completa</span> y <span>personalizada</span>. La plataforma incluye un <span>sistema completo de cuentas y perfiles</span>, permitiendo a los usuarios puedan <span>editar</span> todos los campos de su información personal de manera <span>sencilla y segura.</span>',
+      '<strong>Plataforma Web Integral</strong> para automotora. Sistema completo que permite <span>gestionar vehículos</span>, <span>reservas</span> y <span>ventas en línea</span> con <span>experiencia de usuario personalizada</span>.',
     'card2.2':
-      'Además, hemos implementado un <span>carrito</span> de compras versátil que permite a los clientes realizar <span>reservas</span>, <span>alquilar</span> y <span>comprar</span> vehículos en línea, con un proceso de pago intuitivo y seguro.',
+      '<strong>Stack:</strong> <span>PHP</span>, <span>CSS</span>, <span>HTML</span>.',
     'card2.3':
-      'Para la <span>gestión interna</span>, hemos desarrollado un <span>backend</span> avanzado que centraliza todas las operaciones. Este sistema incluye un <span>control de usuarios y permisos</span>, lo que permite a la administración <span>agregar empleados</span> con distintos <span>niveles de acceso</span> según sus <span>roles</span>. Las opciones de administración disponibles incluyen la <span>gestión de usuarios</span>, <span>inventario de vehículos</span>, <span>especificaciones detalladas de cada automóvil</span>, <span>compras</span>, <span>reservas</span>, y otras funciones críticas para el negocio.',
+      '<strong>Funcionalidades:</strong> <span>Sistema de cuentas y perfiles</span>, <span>carrito de compras</span> para <span>reservas, alquiler y compra</span>, <span>backend administrativo</span> con <span>control de usuarios y permisos</span>, <span>gestión de inventario</span> y <span>especificaciones detalladas de vehículos</span>.',
 
     'card.ver': 'VISITAR',
     alert:
@@ -91,11 +87,13 @@ export const traducciones = {
     // AlquilerUY
     alquileruy: 'ALQUILERUY',
     'card3.1':
-      '<strong>AlquilerUY</strong> es una <span>plataforma marketplace</span> de alquiler de <span>objetos y propiedades</span> en Uruguay. Permite a los usuarios <span>buscar y alquilar</span> desde casas y autos hasta herramientas y equipos, mientras que los vendedores pueden <span>publicar sus productos</span> y <span>gestionar reservas</span> de manera eficiente.',
+      '<strong>Marketplace Full Stack</strong> de alquileres en Uruguay. <span>Plataforma integral</span> que permite la <span>gestión de reservas</span> y <span>publicaciones de objetos y propiedades</span>.',
     'card3.2':
-      'La plataforma incluye un <span>sistema de búsqueda avanzada</span> con <span>categorías organizadas</span>, <span>gestión completa de reservas</span>, <span>pagos integrados con MercadoPago</span> y un <span>sistema de reseñas y calificaciones</span> para garantizar la confianza entre usuarios.',
+      '<strong>Stack:</strong> <span>Next.js 14</span>, <span>React 18</span>, <span>PostgreSQL</span>, <span>Prisma ORM</span>.',
     'card3.3':
-      'Desarrollada con <span>Next.js 14</span> y <span>React 18</span> utilizando el <span>App Router</span> para <span>renderizado del lado del servidor</span> y <span>optimización SEO</span>. El backend utiliza <span>Prisma ORM</span> con <span>PostgreSQL</span> para la gestión de datos, <span>NextAuth.js</span> para <span>autenticación segura</span>, y <span>MercadoPago</span> para <span>procesamiento de pagos</span>. La interfaz está construida con <span>Tailwind CSS</span> y componentes accesibles de <span>Radix UI</span>, mientras que <span>TypeScript</span> garantiza la <span>seguridad de tipos</span> en todo el proyecto.',
+      '<strong>Funcionalidades:</strong> <span>Búsqueda avanzada</span>, <span>sistema de reseñas</span>, <span>autenticación segura con NextAuth</span> y <span>pagos integrados con MercadoPago API</span>.',
+    'card3.4':
+      '<strong>Destacado:</strong> <span>Arquitectura optimizada para SEO</span>.',
 
     // Fechas
     '6mago': 'hace 1 año',
@@ -161,8 +159,10 @@ export const traducciones = {
 
     // Atributos
     atr: 'ATTRIBUTES',
-    interfaz: 'USER INTERFACE',
-    lenguaje: 'LANGUAGES',
+    'skills.core': 'Core Languages:',
+    'skills.frontend': 'Frontend:',
+    'skills.backend': 'Backend:',
+    'skills.infra': 'Infrastructure:',
 
     // Trabajos
     trabajos: 'PROJECTS',
@@ -172,22 +172,16 @@ export const traducciones = {
 
     // Cards de trabajos
     'card1.1':
-      'We developed a <span>website</span> specialized in <span>selling digital services</span>, designed to offer digital solutions to companies, entrepreneurs, or individuals.<br>',
+      '<strong>Digital Services E-commerce</strong>. Site specialized in <span>selling technological solutions</span> for companies.',
     'card1.2':
-      '<span>Web Pages:</span> Creation and development of <span>intuitive</span> and <span>optimized</span> websites to meet the specific needs of each client.<br>',
-    'card1.3':
-      '<span>Online Stores:</span> Implementation of <span>complete</span> e-commerce solutions, with all the <span>necessary functionalities</span> to sell products and services online in an <span>efficient and secure</span> manner.<br>',
-    'card1.4':
-      '<span>Management Systems:</span> Development of management systems tailored to the <span>needs</span> of each business, whether in <span>web format</span> or as <span>desktop applications</span>, allowing <span>efficient and accessible</span> management from any device.<br>',
-    'card1.5':
-      'This website not only <span>facilitates</span> the acquisition of these services but also offers an <span>intuitive</span> user experience, with an <span>attractive design</span> and a <span>simplified purchase process</span>',
+      '<strong>Focus:</strong> <span>Intuitive user experience (UX)</span>, <span>dynamic service catalog</span> and <span>simplified purchase processes</span> to <span>maximize conversion</span>.',
 
     'card2.1':
-      'We developed a <span>comprehensive website</span> for a car dealership, designed to offer a <span>complete</span> and <span>personalized</span> user experience. The platform includes a <span>complete system of accounts and profiles</span>, allowing users to <span>edit</span> all fields of their personal information easily and securely.',
+      '<strong>Comprehensive Web Platform</strong> for car dealership. Complete system that enables <span>vehicle management</span>, <span>reservations</span> and <span>online sales</span> with <span>personalized user experience</span>.',
     'card2.2':
-      'Additionally, we have implemented a versatile <span>shopping cart</span> that allows customers to make <span>reservations</span>, <span>rent</span>, and <span>purchase</span> vehicles online, with an intuitive and secure payment process.',
+      '<strong>Stack:</strong> <span>PHP</span>, <span>CSS</span>, <span>HTML</span>.',
     'card2.3':
-      'For <span>internal management</span>, we have developed an advanced <span>backend</span> that centralizes all operations. This system includes <span>user and permission control</span>, allowing the administration to <span>add employees</span> with different <span>access levels</span> according to their <span>roles</span>. Available management options include <span>user management</span>, <span>vehicle inventory</span>, <span>detailed specifications of each car</span>, <span>purchases</span>, <span>reservations</span>, and other critical functions for the business.',
+      '<strong>Features:</strong> <span>Account and profile system</span>, <span>shopping cart</span> for <span>reservations, rental and purchase</span>, <span>administrative backend</span> with <span>user and permission control</span>, <span>inventory management</span> and <span>detailed vehicle specifications</span>.',
 
     'card.ver': 'VISIT',
     alert:
@@ -196,11 +190,13 @@ export const traducciones = {
     // AlquilerUY
     alquileruy: 'ALQUILERUY',
     'card3.1':
-      '<strong>AlquilerUY</strong> is a <span>marketplace platform</span> for renting <span>objects and properties</span> in Uruguay. It allows users to <span>search and rent</span> from houses and cars to tools and equipment, while sellers can <span>publish their products</span> and <span>manage reservations</span> efficiently.',
+      '<strong>Full Stack Marketplace</strong> for rentals in Uruguay. <span>Comprehensive platform</span> that enables <span>reservation management</span> and <span>publications of objects and properties</span>.',
     'card3.2':
-      'The platform includes an <span>advanced search system</span> with <span>organized categories</span>, <span>complete reservation management</span>, <span>integrated payments with MercadoPago</span>, and a <span>review and rating system</span> to ensure trust between users.',
+      '<strong>Stack:</strong> <span>Next.js 14</span>, <span>React 18</span>, <span>PostgreSQL</span>, <span>Prisma ORM</span>.',
     'card3.3':
-      'Developed with <span>Next.js 14</span> and <span>React 18</span> using the <span>App Router</span> for <span>server-side rendering</span> and <span>SEO optimization</span>. The backend uses <span>Prisma ORM</span> with <span>PostgreSQL</span> for data management, <span>NextAuth.js</span> for <span>secure authentication</span>, and <span>MercadoPago</span> for <span>payment processing</span>. The interface is built with <span>Tailwind CSS</span> and accessible components from <span>Radix UI</span>, while <span>TypeScript</span> ensures <span>type safety</span> throughout the project.',
+      '<strong>Features:</strong> <span>Advanced search</span>, <span>review system</span>, <span>secure authentication with NextAuth</span> and <span>integrated payments with MercadoPago API</span>.',
+    'card3.4':
+      '<strong>Highlight:</strong> <span>SEO-optimized architecture</span>.',
 
     // Fechas
     '6mago': '1 year ago',

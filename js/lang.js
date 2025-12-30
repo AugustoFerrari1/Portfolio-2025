@@ -101,7 +101,7 @@ export const traducciones = {
     // Sección Sobre Mi
     sobre_mi: 'ABOUT ME',
     sobre_mi_texto:
-      'Student of <span>Systems Engineering</span> at <span>ORT Uruguay</span>, with a background in <span>web development</span> and <span>databases</span>.<br> I have created over <span>5 personal projects</span> on various platforms, applying <span>clean coding practices</span> and <span>backend logic.</span>',
+      'Advanced student of <span>Systems Engineering</span> at <span>ORT Uruguay University</span> (6th semester).<br>My main focus is <span>software development</span>, combining languages like <span>C++</span>, <span>Java</span> and <span>JS</span> with modern technologies like <span>Next.js</span>, <span>Node.js</span> and <span>Docker</span>.<br>With a solid focus on <span>logical problem solving</span> and <span>scalable architecture design</span>.',
     btncv: 'VIEW CV',
     btncer: 'CERTIFICATE',
 

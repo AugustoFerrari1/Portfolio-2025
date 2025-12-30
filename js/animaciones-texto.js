@@ -93,6 +93,59 @@ export function reiniciarAnimacionesNombre() {
   }, 100);
 }
 
+// Función para dividir palabras dentro de spans
+function dividirPalabrasEnSpans(elemento) {
+  // Buscar todos los spans que contienen múltiples palabras
+  const spans = Array.from(elemento.querySelectorAll('span'));
+  
+  spans.forEach((span) => {
+    if (span.classList.contains('word') || span.classList.contains('char')) {
+      return;
+    }
+    
+    const texto = span.textContent.trim();
+    const palabras = texto.split(/\s+/).filter(p => p.length > 0);
+    
+    // Si hay múltiples palabras, dividirlas en spans separados
+    if (palabras.length > 1) {
+      const claseOriginal = span.className;
+      const atributos = {};
+      Array.from(span.attributes).forEach((attr) => {
+        if (attr.name !== 'class' && attr.name !== 'style') {
+          atributos[attr.name] = attr.value;
+        }
+      });
+      
+      // Crear fragmento con spans individuales para cada palabra
+      const fragmento = document.createDocumentFragment();
+      palabras.forEach((palabra, idx) => {
+        const nuevoSpan = document.createElement('span');
+        if (claseOriginal) {
+          nuevoSpan.className = claseOriginal;
+        }
+        nuevoSpan.textContent = palabra;
+        
+        // Copiar atributos
+        Object.keys(atributos).forEach((key) => {
+          nuevoSpan.setAttribute(key, atributos[key]);
+        });
+        
+        fragmento.appendChild(nuevoSpan);
+        
+        // Agregar espacio después de cada palabra excepto la última
+        if (idx < palabras.length - 1) {
+          fragmento.appendChild(document.createTextNode(' '));
+        }
+      });
+      
+      // Reemplazar el span original con el fragmento
+      if (span.parentNode) {
+        span.parentNode.replaceChild(fragmento, span);
+      }
+    }
+  });
+}
+
 // Anima los textos revelados (.revelartext)
 export function inicializarAnimacionesRevealText() {
   const elementosRevealText = document.querySelectorAll('.revelartext');
@@ -102,6 +155,10 @@ export function inicializarAnimacionesRevealText() {
     const colorTexto = '#a89c89';
     const colorSpan = '#ec7c26';
 
+    // Primero, dividir palabras dentro de spans para que se ajusten correctamente
+    dividirPalabrasEnSpans(elemento);
+
+    // Ahora aplicar SplitType
     const textoSeparado = new SplitType(elemento, { types: 'words, chars' });
 
     // Guardar referencia para poder revertir después
@@ -124,8 +181,8 @@ export function inicializarAnimacionesRevealText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
-          start: 'top 85%',
-          end: 'top 10%',
+          start: 'top 90%',
+          end: 'top -30%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -143,8 +200,8 @@ export function inicializarAnimacionesRevealText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
-          start: 'top 85%',
-          end: 'top 10%',
+          start: 'top 90%',
+          end: 'top -30%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -162,6 +219,9 @@ export function reiniciarAnimacionesRevealText() {
     const colorFondo = elemento.dataset.bgColor || '#353535';
     const colorTexto = '#a89c89';
     const colorSpan = '#ec7c26';
+
+    // Primero, dividir palabras dentro de spans para que se ajusten correctamente
+    dividirPalabrasEnSpans(elemento);
 
     // El contenido ya está traducido
     const textoSeparado = new SplitType(elemento, { types: 'words, chars' });
@@ -184,8 +244,8 @@ export function reiniciarAnimacionesRevealText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
-          start: 'top 85%',
-          end: 'top 10%',
+          start: 'top 90%',
+          end: 'top -30%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,
@@ -202,8 +262,8 @@ export function reiniciarAnimacionesRevealText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: elemento,
-          start: 'top 85%',
-          end: 'top 10%',
+          start: 'top 90%',
+          end: 'top -30%',
           scrub: true,
           toggleActions: 'play play reverse reverse',
           markers: false,

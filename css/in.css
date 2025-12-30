@@ -183,11 +183,22 @@ header {
 
 .sobremi .revelartext .word {
     white-space: normal;
+    display: inline;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.sobremi .revelartext .word > span,
+.sobremi .revelartext span.word {
+    display: inline;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .sobremi .revelartext {
     word-break: break-word;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    line-break: auto;
 }
 
 .sobremi .contenedor .desc {
@@ -642,6 +653,13 @@ a {
     }
 }
 
+/* Responsive - Ocultar marker-text en pantallas medianas */
+@media (max-width: 1069px) {
+    .marker-text {
+        display: none !important;
+    }
+}
+
 /* Responsive - Ocultar en pantallas pequeñas */
 @media (max-width: 768px) {
     .scroll-progress-bar {
@@ -1011,6 +1029,12 @@ footer p {
         margin-top: 3%;
     }
     
+    .experiencia-item .star-svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+    }
+    
     .atributos {
         margin-left: 5%;
         padding-right: 5%;
@@ -1130,6 +1154,12 @@ footer p {
         margin-top: 4%;
     }
     
+    .experiencia-item .star-svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    
     .atributos {
         margin-left: 3%;
         padding-right: 3%;
@@ -1152,8 +1182,8 @@ footer p {
     }
 }
 
-/* Normal - 376px to 425px */
-@media (max-width: 425px) and (min-width: 376px) {
+/* Normal - 373px to 425px */
+@media (max-width: 425px) and (min-width: 373px) {
     .menubar img {
         width: 40px;
         height: 30px;
@@ -1189,6 +1219,12 @@ footer p {
         padding-right: 0%;
         margin-top: 4%;
     }
+    
+    .experiencia-item .star-svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+    }
 
     .atributos {
         margin-top: 35%;
@@ -1208,7 +1244,7 @@ footer p {
 }
 
 /* Chiquito - 340px to 375px */
-@media (max-width: 375px) and (min-width: 340px) {
+@media (max-width: 372px) and (min-width: 340px) {
     .menubar {
         padding: 10px 8px;
     }
@@ -1260,6 +1296,12 @@ footer p {
         line-height: 18px;
         padding-right: 0%;
         margin-top: 4%;
+    }
+    
+    .experiencia-item .star-svg {
+        width: 15px;
+        height: 15px;
+        margin-right: 4px;
     }
     
     .atributos {
@@ -1344,6 +1386,12 @@ footer p {
         line-height: 16px;
         padding-right: 0%;
         margin-top: 5%;
+    }
+    
+    .experiencia-item .star-svg {
+        width: 12px;
+        height: 12px;
+        margin-right: 3px;
     }
     
     .atributos {

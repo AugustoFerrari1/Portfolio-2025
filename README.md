@@ -31,7 +31,7 @@ La plataforma incluye un **sistema de búsqueda avanzada** con **categorías org
  `Next.js 14` · `React 18` · `TypeScript` · `Prisma ORM` · `PostgreSQL` · `Tailwind CSS` · `Docker`.
 
 **Ver Proyecto:**
-- [Carpeta del proyecto](https://github.com/AugustoFerrari1/PixelShift.git)
+- [Carpeta del proyecto](https://github.com/AugustoFerrari1/alquileruy.git)
 
 ---
 
